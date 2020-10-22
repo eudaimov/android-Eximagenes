@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -41,29 +42,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String url;
     private String urlvideo;
     private int REQUEST_WRITE_STORAGE =12;
+    private Button permisos;
+    private Button mostrar;
+    private Button descargar;
 
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         miimagen = (ImageButton) findViewById(R.id.id_imagen);
-        cronometro();
+        permisos = (Button) findViewById(R.id.id_permisos);
+        mostrar = (Button) findViewById(R.id.id_mostrar);
+        descargar = (Button) findViewById(R.id.id_descargar);
+
+
+
+
         miimagen.setOnClickListener(this);
-
-        comprobarpermisos(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        comprobarpermisos(Manifest.permission.READ_EXTERNAL_STORAGE);
-        comprobarpermisos(Manifest.permission.INTERNET);
-
-
-        Resources res = getResources();
-        String[] imagenes = res.getStringArray(R.array.url_imagenes);
-        saveImage(imagenes[0]);
-        Log.e("Directorio",Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString());
-
+        permisos.setOnClickListener(this);
+        mostrar.setOnClickListener(this);
+        descargar.setOnClickListener(this);
 
 
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -79,6 +81,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Preguntar por qué no se pone this en Intent.ACTION_VIEW
                 Intent mienlace = new Intent(Intent.ACTION_VIEW, Uri.parse(urlvideo));
                 startActivity(mienlace);
+                break;
+            case R.id.id_mostrar:
+                cronometro();
+                break;
+            case R.id.id_permisos:
+                comprobarpermisos(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                comprobarpermisos(Manifest.permission.READ_EXTERNAL_STORAGE);
+                comprobarpermisos(Manifest.permission.INTERNET);
+
+
                 break;
         }
     }
@@ -154,7 +166,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void comprobarpermisos (String  permiso){
         if (ContextCompat.checkSelfPermission (this,
                 permiso)== PackageManager.PERMISSION_GRANTED)
-        {Log.e("permido","Concedido"); }
+        {
+
+          Toast.makeText(this,"El permiso de "+permiso+"ya ha sido concedido",Toast.LENGTH_LONG).show(); }
 
         else{
             if(shouldShowRequestPermissionRationale(permiso)){

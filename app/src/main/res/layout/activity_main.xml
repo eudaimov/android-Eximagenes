@@ -4,20 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorActivatedHighlight"
+    android:visibility="visible"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/id_permisos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Permisos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/id_mostrar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/id_mostrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Mostrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/id_descargar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/id_permisos"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/id_descargar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/id_mostrar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/id_imagen"
-        android:layout_width="184dp"
-        android:layout_height="167dp"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="136dp"
+        android:layout_width="147dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="132dp"
+        android:adjustViewBounds="false"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/Descripcion_imagen"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@android:drawable/ic_delete" />
+        app:srcCompat="@android:drawable/ic_dialog_alert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

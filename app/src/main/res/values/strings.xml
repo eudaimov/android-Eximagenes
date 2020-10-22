@@ -10,4 +10,8 @@
        <item>https://www.youtube.com/watch?v=gkDbAWKkeX4</item> <!-- Quinta sinfonia de Bethoven-->
         <item>https://www.youtube.com/watch?v=7DBIR30ks64</item><!--Cuatro estaciones de Vivaldi-->
     </string-array>
+    <string name="Permisos">Permisos</string>
+    <string name="Mostrar">Mostrar</string>
+    <string name="Guardar">Descargar</string>
+    <string name="Descripcion_imagen">Lugar donde se van mostrando imagenes </string>
 </resources>
