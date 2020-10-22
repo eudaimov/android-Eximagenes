@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button permisos;
     private Button mostrar;
     private Button descargar;
+    private Button pasar;
 
 
 
@@ -57,18 +58,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         permisos = (Button) findViewById(R.id.id_permisos);
         mostrar = (Button) findViewById(R.id.id_mostrar);
         descargar = (Button) findViewById(R.id.id_descargar);
-
-
-
+        pasar = (Button)findViewById(R.id.id_pasar);
 
         miimagen.setOnClickListener(this);
         permisos.setOnClickListener(this);
         mostrar.setOnClickListener(this);
         descargar.setOnClickListener(this);
-
-
-
-
+        pasar.setOnClickListener(this);
 
     }
 
@@ -89,8 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 comprobarpermisos(Manifest.permission.WRITE_EXTERNAL_STORAGE);
                 comprobarpermisos(Manifest.permission.READ_EXTERNAL_STORAGE);
                 comprobarpermisos(Manifest.permission.INTERNET);
-
-
+            case R.id.id_pasar:
+                Intent segunda = new Intent(this,MainActivity2.class);
+                startActivity(segunda);
                 break;
         }
     }
@@ -176,5 +173,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             requestPermissions(new String[]{permiso}, REQUEST_WRITE_STORAGE);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
     }
 }
