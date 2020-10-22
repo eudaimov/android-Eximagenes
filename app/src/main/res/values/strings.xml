@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MusicaeImagenes</string>
+    <string-array name="url_imagenes">
+        <item>https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg</item>
+        <item>https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/800px-beethoven-1553593630.jpg</item><!--Beethoven-->
+        <item>https://www.elregalomusical.com/wp-content/uploads/2014/03/Vivaldi.jpg</item><!--Vivaldi-->
+    </string-array>
+    <string-array name="url_videos">
+        <item>https://www.youtube.com/watch?v=w6cMQQI4m5Y</item><!-- Concierto Brandemburgo -->
+       <item>https://www.youtube.com/watch?v=gkDbAWKkeX4</item> <!-- Quinta sinfonia de Bethoven-->
+        <item>https://www.youtube.com/watch?v=7DBIR30ks64</item><!--Cuatro estaciones de Vivaldi-->
+    </string-array>
+</resources>
